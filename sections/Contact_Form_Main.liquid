@@ -1,0 +1,71 @@
+<div class="max-w-[100vw] mx-auto min-h-[100vh] bg-slate-100 px-[3vw] lg:px-[5vw] flex justify-center items-center">
+
+
+<!-- Sub Section  Start -->
+
+<div class="w-full min-h-[80vh]  grid grid-cols-1 lg:grid-cols-2 gap-5 my-5 lg:my-0">
+
+
+    <!-- Text Area -->
+    <div class="w-full h-full   text-center flex flex-col gap-5 px-10 py-10 justify-center items-center">
+        
+    <h1 class="text-3xl font-bold"> {{ section.settings.Heading }} </h1>
+    <p>{{ section.settings.Paragraph }} </p>
+    
+    </div>
+    <!-- Form -->
+
+     <div class="w-full h-full rounded-md shadow-md bg-white flex flex-col gap-5 px-5 py-5    "> 
+     {% form   'contact'%}
+     
+  
+        
+  <input type="text" placeholder="Name" name="contact[first_name]" id="first-name" class="w-full border border-slate-400 p-2 outline-none mb-5">
+
+       
+<input type="email" name="contact[email]" id="email" placeholder="Email" class="p-2 w-full border border-slate-400  outline-non mb-5" />
+ 
+ <textarea name="contact[body]" id="message" placeholder="Message Here" class="p-2 w-full border border-slate-400  outline-non mb-5 min-h-[30vh]"></textarea>
+
+ <button type="submit" class="px-8 py-2 border bg-blue-600 text-white font-bold"> SEND MESSAGE </button>
+    {% endform %}
+
+     </div>
+
+</div>
+
+<!-- Sub Section Finish -->
+
+
+</div>
+
+
+{% schema %}
+{
+"name": "Contact Form Main",
+"settings": [{
+
+"type": "text",
+"id": "Heading",
+"label": "Heading",
+"default":"You tell us. We listen."
+
+}
+,{
+
+"type": "text",
+"id": "Paragraph",
+"label": "Paragraph",
+"default":"Cras elementum finibus lacus nec lacinia. Quisque non convallis nisl, eu condimentum sem. Proin dignissim libero lacus, ut eleifend magna vehicula et. Nam mattis est sed tellus."
+
+
+}
+
+
+]
+
+
+
+}
+
+{% endschema %}

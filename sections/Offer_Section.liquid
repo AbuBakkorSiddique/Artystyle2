@@ -1,0 +1,130 @@
+<style>
+
+
+</style>
+
+
+
+<div class="max-w-[100vw] mx-auto min-h-[100vh] bg-green flex justify-center items-center px-[3vw] md:px-[5vw]  ">
+
+
+    <!-- Sub Section Start  -->
+    <div  class="w-full min-h-[80vh]  grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-5 ">
+    
+    {% for block in section.blocks  %}
+
+        {%  case block.type %}
+          {% when "offerBlock" %}
+            
+  <div class=" h-full  w-full BackgroundImage bg-cover bg-center bg-no-repeat  "
+style="background-image:url('{{ block.settings.Background_Image | image_url }}');"
+
+> 
+
+<div class="min-h-[60vh] md:h-full w-full bg-[rgba(0,0,0,0.5)]  relative flex justify-center items-center" >
+
+<div class="w-full min-h-[30vh]  absolute   bottom-0 px-5 py-5 flex flex-col gap-5 ">
+    <!-- Heading -->
+    <h1 class="text-2xl text-white  font-bold "> {{ block.settings.Heading  }}</h1>
+
+    <!-- paragraph -->
+    <p class="text-sm text-white"> {{ block.settings.Peragraph  }} </p>
+
+    <!-- Button -->
+    <a href="{{ block.settings.Button_Url }}">
+
+<button class=" w-full lg:w-[50%]  px-6 py-3 bg-white text-black hover:bg-black hover:text-white text-md font-bold "> 
+        {{ block.settings.Button_text }}
+    </button>
+    
+    </a>
+ 
+
+    </div>
+
+  </div>
+        
+
+
+  <!-- Single Div FInish -->
+     </div>       
+       
+ 
+        
+            
+        {% endcase %}
+
+
+        {% endfor %}
+
+ 
+
+
+
+
+    
+    
+        <!-- Sub Section Finish -->
+    </div>
+</div>
+
+
+
+
+
+{% schema %}
+
+{
+"name": "Offer Section ",
+"settings": [],
+"max_blocks": 3,
+
+"blocks": [{
+"type": "offerBlock",
+"name":"Offer Block ",
+"settings": [
+    {
+    
+    "type": "image_picker",
+    "id": "Background_Image",
+    "label": "Background_image"
+    
+    },
+    {
+    "type": "text",
+    "id": "Heading",
+    "label": "Heading ",
+    "default":"20% Off On Tank Tops",
+
+    
+    },
+    {
+    "type": "text",
+    "id": "Peragraph",
+    "label": "Peragraph",
+    "default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum."
+    
+    },
+    {
+    "type": "text",
+    "id": "Button_text",
+    "label": "Button Text",
+    "default":"SHOP NOW"
+    
+    },{
+    
+    "type": "url",
+    "id": "Button_Url",
+    "label": "Button Url ",
+    "default":"/"
+    
+    }
+]
+
+
+}]
+
+
+}
+
+{% endschema %}

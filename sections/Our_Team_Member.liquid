@@ -1,0 +1,89 @@
+<div class="max-w-[100vw] mx-auto min-h-[100vh] bg-white  px-[3vw] lg:px-[5vw] flex justify-center items-center py-5 ">
+
+
+    <!-- Main Team Start  -->
+
+
+     <div class="min-h-[80vh] min-w-[80vw] lg:min-w-[60vw]   grid grid-cols-1 lg:grid-cols-3 lg:grid-row-2 gap-5  ">
+
+
+   {% for block in section.blocks %}
+
+    {% case block.type %}
+      {% when "Member" %}
+         <div class="h-full w-full  bg-slate-100 rounded-md flex flex-col justify-center items-center gap-3  py-5 ">
+            <img src="{{ block.settings.Team_Member | image_url }}" alt="" class="h-[18vh] min-w-[8vw] aspect-ratio:1/1">
+            <h1 class="text-2xl font-bold"> {{ block.settings.Name }} </h1>
+            <p> {{ block.settings.Position }} </p>
+        </div>
+ 
+        
+      {% else %}
+        <div class="h-full w-full flex justify-center items-center ">
+          <h1 class="text-3xl font-bold">  Add Block From Admin for Member.</h1>
+        </div>
+        
+    {% endcase %}
+
+    {% endfor %}
+
+
+    
+
+     </div>
+
+    <!-- Main Team FInish -->
+
+</div>
+
+
+
+{% schema %}
+
+{
+"name": "Our Team Member",
+"settings": [],
+"max_blocks": 6,
+"blocks": [
+
+{
+"name":"Our Team Member",
+"type": "Member",
+"settings": [
+{
+"type": "image_picker",
+"id": "Team_Member",
+"label": "Team_Member"
+
+},
+{
+"type": "text",
+"id": "Name",
+"label":"Name",
+"default":"Robat Jhonson"
+
+
+},
+
+{
+
+"type": "text",
+"id": "Position",
+"label": "Position",
+"default":"Manager"
+
+
+}
+
+]
+
+
+}
+
+
+]
+
+
+
+}
+{% endschema %}

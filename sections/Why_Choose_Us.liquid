@@ -1,0 +1,163 @@
+<div class="max-w-[100vw] mx-auto min-h-[60vh] px-[3vw] lg:px-[5vw] bg-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-5 py-5">
+
+    <!-- First -->
+<div class="min-h-[50vh]  w-full  flex flex-col justify-center items-center gap-5 text-center ">
+
+  <img src="{{ section.settings.Image1 | image_url }}" alt="" class=" min-w-[5vw]  h-[10vh] aspect-ratio:1/1 ">
+
+  <h1 class="text-xl font-bold "> {{ section.settings.Text1 }} </h1>
+<div class="flex flex-col text-center ">
+      <p class="text-sm md:text-md"> {{ section.settings.Text1_sub1 }} </p>
+   <p class="text-sm md:text-md">  {{ section.settings.Text1_sub2 }}</p>
+</div>
+
+</div>
+
+<!-- Second -->
+<div class="min-h-[50vh] w-full  flex flex-col justify-center items-center gap-5 text-center ">
+
+  <img src="{{ section.settings.Image2 | image_url }}" alt="" class="h-[10vh] min-w-[5vw] aspect-ratio:1/1 ">
+
+  <h1 class="text-xl font-bold "> {{ section.settings.Text2 }} </h1>
+<div class="flex flex-col text-center ">
+      <p class=" text-sm  md:text-md"> {{ section.settings.Text2_sub1 }} </p>
+   <p class="text-sm md:text-md">  {{ section.settings.Text2_sub2 }}</p>
+</div>
+
+</div>
+
+<!-- THird -->
+<div class="min-h-[50vh] w-full  flex flex-col justify-center items-center gap-5 text-center ">
+
+  <img src="{{ section.settings.Image3 | image_url }}" alt="" class="h-[10vh] min-w-[5vw] aspect-ratio:1/1 ">
+
+  <h1 class="text-xl font-bold "> {{ section.settings.Text3 }} </h1>
+<div class="flex flex-col text-center ">
+      <p class="text-sm md:text-md"> {{ section.settings.Text3_sub1 }} </p>
+   <p class="text-sm md:text-md">  {{ section.settings.Text3_sub2 }}</p>
+</div>
+
+</div>
+
+<!-- Four -->
+<div class="min-h-[50vh] w-full  flex flex-col justify-center items-center gap-5 text-center ">
+
+  <img src="{{ section.settings.Image4 | image_url }}" alt="" class="h-[10vh] min-w-[5vw] aspect-ratio:1/1 ">
+
+  <h1 class="text-xl font-bold "> {{ section.settings.Text4 }} </h1>
+<div class="flex flex-col text-center ">
+      <p class="text-sm md:text-md"> {{ section.settings.Text4_sub1 }} </p>
+   <p class="text-sm md:text-md">  {{ section.settings.Text4_sub2 }}</p>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "Image1",
+      "label": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "Text1",
+      "label": "Text 1",
+      "default": "Worldwide Shipping"
+    },
+    {
+      "type": "text",
+      "id": "Text1_sub1",
+      "label": "Text 1 Sub1",
+      "default": "It elit tellus, luctus nec ullamcorper"
+    },
+    {
+      "type": "text",
+      "id": "Text1_sub2",
+      "label": "Text 1 Sub2",
+      "default": "mattis, pulvinar dapibus leo."
+    },
+    {
+      "type": "image_picker",
+      "id": "Image2",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "Text2",
+      "label": "Text 2",
+      "default": "Best Quality"
+    },
+    {
+      "type": "text",
+      "id": "Text2_sub1",
+      "label": "Text 2 Sub1",
+      "default": "It elit tellus, luctus nec ullamcorper"
+    },
+    {
+      "type": "text",
+      "id": "Text2_sub2",
+      "label": "Text 2 Sub2",
+      "default": "mattis, pulvinar dapibus leo."
+    },
+    {
+      "type": "image_picker",
+      "id": "Image3",
+      "label": "Image 3"
+    },
+    {
+      "type": "text",
+      "id": "Text3",
+      "label": "Text 3",
+      "default": "Best Offers"
+    },
+    {
+      "type": "text",
+      "id": "Text3_sub1",
+      "label": "Text 3 Sub1",
+      "default": "It elit tellus, luctus nec ullamcorper"
+    },
+    {
+      "type": "text",
+      "id": "Text3_sub2",
+      "label": "Text 3 Sub2",
+      "default": "mattis, pulvinar dapibus leo."
+    },
+    {
+      "type": "image_picker",
+      "id": "Image4",
+      "label": "Image 4"
+    },
+    {
+      "type": "text",
+      "id": "Text4",
+      "label": "Text 4",
+      "default": "Secure Payments"
+    },
+    {
+      "type": "text",
+      "id": "Text4_sub1",
+      "label": "Text 4 Sub1",
+      "default": "It elit tellus, luctus nec ullamcorper"
+    },
+    {
+      "type": "text",
+      "id": "Text4_sub2",
+      "label": "Text 4 Sub2",
+      "default": "mattis, pulvinar dapibus leo."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us"
+    }
+  ]
+}
+{% endschema %}

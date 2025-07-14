@@ -1,23 +1,57 @@
-<!doctype html>
-<html lang="{{ request.locale.iso_code }}">
-  <head>
-    {% # Inlined CSS Variables %}
-    {% render 'css-variables' %}
+<!DOCTYPE html>
+<html lang="en">
 
-    {% # Load and preload the critical CSS %}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtyStyle2</title>
 
-    {% # Social, title, etc. %}
-    {% render 'meta-tags' %}
+    <!-- Css Link Up -->
+<link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
+ {{ 'bundle.css' | asset_url | stylesheet_tag }}
 
-    {{ content_for_header }}
-  </head>
+{{ content_for_header }}
+</head>
 
-  <body>
-    {% sections 'header-group' %}
+<body>
 
-    {{ content_for_layout }}
 
-    {% sections 'footer-group' %}
-  </body>
+{% if template.name == 'index' %}
+  <!-- Hero Section Add -->
+  {% section 'index_hero_nav' %}
+
+{% elsif template.name == 'product' %}
+  <!-- White Navigation -->
+  {% section 'White_Navbar' %}
+
+{% elsif template.name == 'collection' %}
+  <!-- White Navigation -->
+  {% section 'White_Navbar' %}
+
+{% elsif template.name == 'page' and template.suffix == blank %}
+  <!-- About Us page -->
+  {% section 'AboutPage_Hero' %}
+
+{% elsif template.name == 'page' and template.suffix == 'contact' %}
+  <!-- Contact Us Page -->
+  {% section 'ContactPage_Hero' %}
+
+{% else %}
+  {% section 'White_Navbar' %}
+{% endif %}
+
+
+
+
+
+
+
+{{ content_for_layout }}
+
+{% section 'Fotter_section' %}
+
+</body>
+<!-- Js Connection -->
+<script src="{{ 'bundle.js' | asset_url }}" defer></script>
 </html>

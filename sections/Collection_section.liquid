@@ -1,0 +1,193 @@
+<style>
+
+
+  </style>
+
+
+
+
+<div class="max-w-[100vw] mx-auto min-h-[120vh] px-[2vw] bg-slate-100 py-8 flex justify-center items-center">
+  <!-- Main Collection Page Start -->
+
+  <div class="w-full min-h-[100vh]    grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+    <!-- Search Area Start -->
+    <div class="h-full w-full px-5  order-2 lg:order-1">
+
+      <!--Filter 1 -------------------------------------->
+
+
+      <!-- Filter 1 -------------------------------------->
+ 
+<!-- Filter 2 -------------------------------------------->
+<!-- Filter Form Start -->
+
+
+
+  <form method="get" id="FilterForm">
+{% for filter in collection.filters %}
+  <div class="mb-4">
+    <h3 class="text-2xl  font-semibold my-2">{{ filter.label }}</h3>
+
+    {% case filter.type %}
+{%- when 'price_range' -%}
+  <div class="flex flex-col gap-4 w-full max-w-md">
+    <!-- Label -->
+    <p class="text-sm text-gray-700">Your filter: <span id="range-from">{{ filter.min_value.value | default: 0 | money }}</span> to <span id="range-to">{{ filter.max_value.value | default: filter.range_max | money }}</span></p>
+
+    <!-- Range input -->
+    <input 
+      type="range"
+      id="price-range"
+      class="auto-submit-filter w-full accent-black"
+      name="{{ filter.max_value.param_name }}"
+      min="0"
+      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+      value="{{ filter.max_value.value | default: filter.range_max | money_without_currency | replace: ',', '' }}"
+    >
+  </div>
+
+
+      {% when 'list' %}
+        <ul class="space-y-1">
+          {% for value in filter.values %}
+            <li>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox"
+                  name="{{ value.param_name }}"
+                  value="{{ value.value }}"
+                  {% if value.active %}checked{% endif %}
+                  {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                  class="auto-submit-filter"
+                >
+                <span>{{ value.label }} ({{ value.count }})</span>
+              </label>
+            </li>
+          {% endfor %}
+        </ul>
+    {% endcase %}
+  </div>
+{% endfor %}
+
+</form>
+
+ 
+
+<!-- Filter 2 ------------------------------------------>
+
+    </div>
+    <!-- Search Area Finish -->
+
+    <!-- Cart Section Start -->
+    <div class="h-full w-full  col-span-3 bg-white  px-5 py-5 flex flex-col gap-5 order-1 lg:order-2">
+
+  {% paginate collection.products by 6 %}
+   
+    <!--- Filter Only For Mobile  -->
+  
+  
+      <!-- Filter -->
+      <div class="w-full min-h-[8vh]  flex flex-row justify-between items-center  ">
+        <!-- Items Count -->
+        <div> 
+
+        {% assign  Result  = collection.products_count %}
+
+        <p> Showing Result : {{ Result  | escape }} </p>
+
+
+        </div>
+        <!-- Items Count -->
+        <!-- Sorting Start -->
+        <div> 
+               <select onchange="location = this.value;" class=" outline-none ">
+               <option value="?sort_by=best-selling">Best Selling</option>
+               <option value="?sort_by=price-ascending">Price: Low to High</option>
+               <option value="?sort_by=price-descending">Price: High to Low</option>
+               <option value="?sort_by=title-ascending">A-Z</option>
+               <option value="?sort_by=title-descending">Z-A</option>
+              </select>
+
+        </div>
+        <!-- Sorting Finish -->
+      
+      </div>
+
+      <!-- Filter -->
+
+      <!-- Carts -->
+      <div class="h-full w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+
+         {% for product in collection.products %}
+       
+          {% render 'Cart_Design', product: product %}
+        
+        {% endfor %}
+
+
+        
+    
+       
+
+      </div>
+      <!-- Carts -->
+
+      <!-- Pagination Start  -->
+       
+ <div id="pagination" class="w-full min-h-[10vh]  flex justify-start items-center gap-2 ">
+ <!-- Pagination as buttons -->
+  
+   
+   {%- if paginate.previous -%}
+      <a href="{{ paginate.previous.url }}" class="px-5 py-2 flex justify-center items-center bg-black text-white hover:bg-gray-800 rounded">
+        ‹
+      </a>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {% if part.is_link %}
+        <a href="{{ part.url }}" class="px-5 py-2 flex justify-center items-center border border-black bg-white hover:bg-black hover:text-white rounded">
+          {{ part.title }}
+        </a>
+      {% else %}
+        <span class="px-5 py-2 flex justify-center items-center bg-black text-white rounded">
+          {{ part.title }}
+        </span>
+      {% endif %}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <a href="{{ paginate.next.url }}" class="px-5 py-2 flex justify-center items-center bg-black text-white hover:bg-gray-800 rounded">
+        ›
+      </a>
+    {%- endif -%}
+
+ 
+    
+   
+
+</div>
+  {% endpaginate %}
+      <!-- Pangination Finish -->
+    </div>
+
+    <!-- Cart Section Finish -->
+  </div>
+
+  <!-- Main Collection Page Finish -->
+</div>
+
+
+
+
+
+
+
+<!-- JavaScript -->
+
+<script>
+  document.querySelectorAll('.auto-submit-filter').forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      document.getElementById('FilterForm').submit();
+    });
+  });
+</script>

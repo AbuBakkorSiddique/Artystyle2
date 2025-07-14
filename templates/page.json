@@ -1,20 +1,19 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
-  "sections": {
-    "main": {
-      "type": "page",
-      "settings": {}
+"name":"Default Page Template",
+"sections":{
+    "WhoWeAre":{
+        "type":"Who_We_Are"
+    },
+    "OurTeamHeading":{
+        "type":"Our_Team"
+    },
+    "OurTeamMember":{
+        "type":"Our_Team_Member"
+    },
+    "SocialMedia":{
+        "type":"Social_Media_link"
     }
-  },
-  "order": [
-    "main"
-  ]
+},
+"order":["WhoWeAre","OurTeamHeading","OurTeamMember","SocialMedia"]
+
 }

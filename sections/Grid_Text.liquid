@@ -1,0 +1,79 @@
+<div class="max-w-[100vw] bg-slate-100 mx-auto min-h-[40vh] py-2 px-[3vw] lg:px-[5vw] flex justify-center items-center">
+
+<!-- Sub Section Start  -->
+<div class="w-full min-h-[30vh]  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <!-- Main Content Area -->
+     
+    {% for block in section.blocks %}
+    <div class="h-full w-full rounded-md shadow-md hover:shadow-lg px-5 bg-white py-5 flex flex-col gap-2 justify-center items-center text-center"> 
+
+        {% case block.type %}
+          {% when "Grid" %}
+                
+            <h1 class="text-3xl font-bold"> {{ block.settings.Heading }} </h1>
+            <p> {{ block.settings.Paragraph }}</p>
+            <h1 class="text-xl font-bold text-blue-700"> {{ block.settings.Contact }} </h1>
+          
+    
+            
+        {% endcase %}
+  </div>
+        {% endfor %}
+
+  
+
+    <!-- Mian Content Finish -->
+   
+   
+    
+</div>
+
+<!-- Sub Section Finish -->
+
+
+</div>
+
+
+
+{% schema %}
+{
+
+"name": "Grid Text",
+"settings": [],
+"max_blocks": 4,
+"blocks": [{
+
+"name":"Grid Text",
+"type": "Grid",
+"settings": [
+{
+"type": "text",
+"id": "Heading",
+"label": "Heading",
+"default":"Sales"
+
+},
+{
+"type": "text",
+"id": "Paragraph",
+"label": "Paragraph",
+"default":"Vestibulum ante ipsum primis in faucibus orci luctus."
+
+},
+{
+"type": "text",
+"id": "Contact",
+"label": "Contact",
+"default":"1800 123 4567"
+
+}
+
+
+]
+
+}]
+
+
+}
+
+{% endschema %}

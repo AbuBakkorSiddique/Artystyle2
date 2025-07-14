@@ -1,0 +1,20 @@
+{
+
+"name":"Contact Page",
+"sections":{
+ "Small_Heading":{
+    "type":"Small_Heading"
+ },
+ "Grid_Text":{
+    "type":"Grid_Text"
+ },
+ "Contact_Form_Main":{
+
+"type":"Contact_Form_Main"
+
+ }
+},
+"order":["Small_Heading","Grid_Text","Contact_Form_Main"]
+
+
+}

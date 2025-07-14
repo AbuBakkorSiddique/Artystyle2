@@ -1,0 +1,405 @@
+<style>
+.DynamicHerosection{
+
+{% if section.settings.Background_image %}
+
+background-image:url('{{ section.settings.Background_image |image_url }}');
+{% else %}
+background-image:url('{{ 'BackgroundImage.avif' | asset_url }}');   
+
+{% endif %}
+
+
+background-size:cover;
+background-position:center  ;
+background-repeat:no-repeat;
+ background-attachment: fixed;
+
+}
+
+.NavBar{
+color:{{ section.settings.Nav_Text_color }};
+ font-family: "Lato", sans-serif;
+
+}
+
+.Name{
+font-size:{{ settings.Name_range }}px;
+
+}
+
+.Hero{
+color:{{ section.settings.Hero_Text_color  }};
+font-size:{{section.settings.Hero_text_size  }}px;
+}
+.Logo{
+height:{{settings.Logo_size  }}px;
+
+}
+
+.HeroHeading{
+
+}
+
+
+</style>
+
+<div class="max-w-[100vw] mx-auto h-auto  DynamicHerosection  flex flex-col justify-center items-center  ">
+   <div class="h-full w-full  flex flex-col justify-center items-center   bg-[rgba(0,0,0,0.2)]   ">
+ 
+ 
+ <!-- Navigation Bar  -->
+<div class="w-full min-h-[16vh]  grid grid-cols-2 lg:grid-cols-4 justify-center items-center NavBar  border-none border-collapse bg-[rgba(0,0,0,0.1)]  ">
+<!-- Nav Icons section -->
+<div class=" w-full h-full  flex justify-start lg:justify-center items-center  lg:items-center px-[3vw]  ">
+    
+{% if settings.Logo %}
+  <a href="/">
+ <img src=" {{ settings.Logo | image_url }}" alt="" class="Logo">
+    </a>
+
+   {% else  %}
+<a href="/">
+ <h1 class="Name">{{ settings.Name }}</h1>
+    </a>
+
+{% endif %}
+
+</div>
+
+<!-- Nav Menu Section -->
+<div class=" w-full h-full  col-span-1 lg:col-span-2   justify-center items-center gap-5 hidden lg:flex ">
+   {% assign NavLink = section.settings.NavLink %}
+   
+    {% if section.settings.NavLink !=blank %}
+
+     {% for  link in NavLink.links %}
+        <a href="{{ link.links }}">
+            <span> {{ link.title }} </span>
+
+        </a>
+        {% endfor %}
+    
+    
+    {% endif %}
+
+</div>
+
+<!-- Nav Cart,search , user section -->
+<div class=" w-full h-full hidden lg:flex justify-center items-center px-[5vw] gap-5  "> 
+
+<!-- search -->
+<button id="SearchIcon"> {% render 'Search_icons' %} </button>
+
+<div class="w-full px-10 gap-40 h-full flex-col hidden transition-all transform translate-0 duration-300 fixed top-0 left-0 inset-0 right-0  justify-center items-center  bg-black" id="SerchBarBigMobile">
+
+      <div class="w-full min-h-[10vh]  flex justify-center items-center  ">
+        <a href="/">
+     <button class="py-3 px-8 border white text-white hover:font-bold hover:bg-white hover:text-black"> Back to Home   </button>
+
+        </a>
+    </div>
+
+    <form class="h-[10vh] w-full border flex flex-row justify-center items-center space-x-5" action="/search" method="get">
+    <input type="text" name="q" placeholder="Search here ....." class="text-white w-full h-full outline-none px-5">
+    <button type="submit" class="  py-5 bg-white text-black h-full px-5 sm:px-8 md:px-10">
+        {% render 'Search_icons' %}
+    </button>
+
+</form>
+</div>
+<!-- Cart -->
+<a href="{{ routes.cart_url }}"> <span class="relative"> <span class="absolute z-30 -top-5"> {{ cart.item_count }} </span>  {% render 'Cart_icons' %} </span>   </a>
+<!-- Usr -->
+<a href="{{ routes.account_url }}"> {% render 'User_Icons' %} </a>
+
+
+</div>
+
+<!-- Mobile Menu Section -->
+
+<div class="lg:hidden   h-full w-full px-[4vw] flex justify-end items-center">
+ <span class="ThreeDot" id="ThreeDot"> {% render 'ThreeDot_icons' %} </span>
+</div>
+
+<!-------------------- Mobile Device Menu   ------------------------->
+<div id="MobileMenu" class="hidden MobileMenu fixed top-0 left-0  bottom-0 right-0 h-full w-full   bg-black z-50 inset-0  ">
+<!-- Three Dot Close Button -->
+
+<div class="min-h-[12vh] w-full flex flex-row  justify-between items-center px-5 border-b border-white mb-5 ">
+
+<div>
+{% if settings.Logo %}
+  <a href="/">
+ <img src=" {{ settings.Logo | image_url }}" alt="" class="Logo">
+    </a>
+
+   {% else  %}
+<a href="/">
+ <h1 class="Name">{{ settings.Name }}</h1>
+    </a>
+
+{% endif %}
+</div>
+
+    
+<button class="text-white" id="CloseButton"> {% render 'Close_icons' %}</button>
+</div>
+
+
+
+<!-- Nav Menu Section -->
+<div class=" w-full min-h-[50vh] flex flex-col justify-center items-center leading-10 px-10  ">
+   {% assign NavLink = section.settings.NavLink %}
+   
+    {% if section.settings.NavLink !=blank %}
+
+     {% for  link in NavLink.links %}
+        <a href="{{ link.links }}">
+            <span class="text-2xl"> {{ link.title }} </span>
+
+        </a>
+        {% endfor %}
+    
+    
+    {% endif %}
+
+</div>
+
+<!-- Nav Cart,search , user section -->
+<div class="w-full min-h-[20vh] flex flex-col space-y-5 px-10  "> 
+
+
+
+
+<div class="min-h-[10vh] w-full flex flex-row justify-between items-center">
+    <!-- Cart -->
+<a href="{{ routes.cart_url }}"> <button class="text-2xl"> <span class="relative"> <span class="absolute z-30 -top-5"> {{ cart.item_count }} </span>  {% render 'Cart_icons' %} </span>  </button> </a>
+<!-- Usr -->
+<a href="{{ routes.account_url }}"> <button class="text-2xl"> {% render 'User_Icons' %} </button> </a>
+</div>
+
+
+<!-- search -->
+
+<form class="min-h-[8vh] w-full border flex flex-row justify-center items-center space-x-5" action="/search" method="get">
+    <input type="text" placeholder="Search here ....." class="text-white w-full h-full outline-none px-5">
+    <button type="submit" name="q" class="  py-5 bg-white text-black h-full px-5 sm:px-8 md:px-10">
+        {% render 'Search_icons' %}
+    </button>
+
+</form>
+
+</div>
+
+</div>
+
+<!------- ------------- Mobile Menu Finish -------------------->
+
+
+
+
+
+<!-- Navigation Bar Finish Area -->
+</div>
+
+
+<!-- ============================= New Area start ================================ -->
+
+
+<!-- Hero Section -->
+
+<div class="w-full min-h-[100vh] Hero grid grid-cols-1 lg:grid-cols-2   ">
+
+ <!-- Hero Content -->
+<div class=" h-full w-full text-center lg:text-start px-[3vw] py-[4vh] lg:py-[10vh] flex flex-col gap-[6vh] justify-center  lg:justify-start items-center lg:items-start  ">
+     
+<!-- Hero Heading -->
+<div> 
+
+{% if section.settings.Hero_Heading %}
+<h1 class="HeroHeading font-bold text-3xl  lg:text-7xl leading-tight "> {{ section.settings.Hero_Heading }} </h1>
+    {% endif %}
+
+
+
+</div>
+
+<!-- Hero Sub Heading -->
+<div>
+     {%  if section.settings.Hero_sub_Heading %}
+   <h1 class="text-lg  lg:text-2xl  font-bold ">  {{ section.settings.Hero_sub_Heading }}</h1>
+        {% endif %}   
+
+</div>
+<!-- Hero Button -->
+<div class="w-full min-h-[10vh]  flex flex-row gap-5 justify-center lg:justify-start items-center  lg:items-start ">
+
+    <!-- Button 1 -->
+ <a href="{{ section.settings.Button1_link }}">
+    <button class="text-lg  border border-white  hover:bg-black hover:border-black hover:text-white  px-10 py-3 lg:py-5  bg-white text-black  "> {{ section.settings.Button1 }} </button>
+
+    </a>
+    <!-- Button 2 -->
+
+    <a href="{{ section.settings.Button2_link }}">
+    <button class="text-lg hover:bg-white border-white hover:text-black   border px-10 py-3 lg:py-5  "> {{ section.settings.Button2 }} </button>
+
+      </a>
+</div>
+
+</div>
+
+<!-- Hero Space area -->
+<div class=" h-full w-full  hidden lg:flex"> </div>
+
+
+</div>
+
+</div>
+</div>
+
+
+
+
+{% schema %}
+{
+"name": "Hero Custom",
+"settings": [
+
+{
+"type": "link_list",
+"id": "NavLink",
+"label": "Nav Link",
+"default":"main-menu"
+
+},
+{
+
+"type": "image_picker",
+"id": "Background_image",
+"label": "Background Image"
+
+},
+
+{
+"type": "color",
+"id": "Nav_color",
+"label": "Nav Color ",
+"default":"#156291"
+
+},
+{
+"type": "color",
+"id": "Nav_Text_color",
+"label": "Nav Text Color ",
+"default":"#ffffff"
+
+},
+
+{
+"type": "color",
+"id": "Hero_Text_color",
+"label": "Hero Text Color  ",
+"default":"#ffffff"
+
+},{
+
+
+    "type": "range",
+    "id": "Hero_text_size",
+    "min": 10,
+    "max": 100,
+    "step": 2,
+    "label": "Font Size ",
+    "default": 16
+
+
+
+},{
+
+
+"type": "text",
+"id": "Hero_Heading",
+"label": "Heading ",
+"default":"Raining Offers For Hot Summer!"
+
+},
+{
+
+"type":"text",
+"id":"Hero_sub_Heading",
+"label":"Sub Heading ",
+"default":"25% Off On All Products"
+
+},
+{
+
+"type": "text",
+"id": "Button1",
+"label": "Button One ",
+"default":"SHOP NOW "
+
+},
+{
+
+"type": "url",
+"id": "Button1_link",
+"label": "Button One Link ",
+ "default":"/"
+
+},
+{
+
+"type": "text",
+"id": "Button2",
+"label": "Button Two ",
+"default":"FIND MORE "
+
+},
+{
+
+"type": "url",
+"id": "Button2_link",
+"label": "Button Two Link  ",
+"default":"/"
+
+}
+
+]
+
+
+
+}
+
+{% endschema %}
+
+
+
+
+
+
+<script>
+
+const ThreeDot = document.getElementById("ThreeDot");
+const MobileMenu=document.getElementById("MobileMenu");
+const CloseButton=document.getElementById("CloseButton");
+const SearchIcon = document.getElementById("SearchIcon");
+const SerchBarBigMobile=document.getElementById("SerchBarBigMobile");
+
+ThreeDot.addEventListener("click",()=>{
+    MobileMenu.classList.remove("hidden")
+
+})
+
+CloseButton.addEventListener("click",()=>{
+MobileMenu.classList.add("hidden");
+
+})
+
+SearchIcon.addEventListener("click",()=>{
+SerchBarBigMobile.classList.remove("hidden");
+SerchBarBigMobile.classList.add("flex")
+})
+
+</script>

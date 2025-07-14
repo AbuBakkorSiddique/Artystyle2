@@ -1,0 +1,72 @@
+<div class="max-w-[100vw] min-h-[80vh] mx-auto px-[3vw] lg:px-[5vw] bg-slate-100  flex justify-center items-center">
+
+<!-- Sub Section -->
+<div class="w-full min-h-[60vh]  grid grid-cols1 lg:grid-cols-2 justify-center items-center ">
+
+    <!-- Sub Section > Content -->
+    <div class="h-full w-full bg-gren-300  flex gap-5 flex-col justify-center  items-center lg:items-start px-5 bg-white py-15 text-center lg:text-start"> 
+    <span class="w-[90px] h-1 bg-blue-700"> </span> 
+    <h1 class="text-4xl font-bold"> {{ section.settings.Heading }} </h1>
+     <h1 class="leading-normal text-center lg:text-start"> {{ section.settings.paragraph }} </h1>
+    </div>
+    <!-- Sub Section > Image --> 
+    <div class="h-full w-full bg-red-600 ">
+
+{% if section.settings.Image %}
+
+        <img src="{{ section.settings.Image | image_url }}" alt="" class="h-full w-full aspect-ratio:16/9">
+
+{% else %}
+
+ <img src="{{ 'BackgroundImage.avif' | asset_url }}" alt="" class="h-full w-full aspect-ratio:16/9">
+
+
+{% endif %}
+
+    </div>
+
+
+</div>
+
+<!-- Sub Section -->
+
+
+
+</div>
+
+
+
+{% schema %}
+
+{
+"name": "Who We Are",
+"settings": [
+{
+"type": "text",
+"id": "Heading",
+"label": "Heading",
+"default":"Who We Are"
+
+},
+{
+"type": "text",
+"id": "paragraph",
+"label": "Paragraph",
+"default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit."
+
+
+},
+{
+"type":"image_picker",
+"id": "Image",
+"label": "Image"
+
+}
+
+
+]
+
+
+
+}
+{% endschema %}

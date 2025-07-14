@@ -1,0 +1,45 @@
+<div class="max-w-[100vw] mx-auto min-h-[60vh] gap-5 px-[3vw] lg:px-[12vw] text-center flex flex-col  justify-center items-center bg-white">
+
+<span class="w-[90px] h-1 bg-blue-700"> </span>
+<h1 class="text-2xl font-bold"> {{ section.settings.Sub_Heading }} </h1>
+<h1 class="text-4xl font-bold"> {{ section.settings.Heading }} </h1>
+<p>  {{ section.settings.Paragraph }}</p>
+ 
+</div>
+
+
+
+{% schema %}
+{
+"name": "Our Team",
+"settings": [{
+"type": "text",
+"id": "Sub_Heading",
+"label": "Sub_Heading",
+"default":"A Few Words About"
+
+},
+{
+"type": "text",
+"id": "Heading",
+"label": "Heading",
+"default":"Our Team"
+
+},
+{
+"type": "text",
+"id": "Paragraph",
+"label": "Paragraph",
+"default":"Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra."
+
+}
+
+
+
+
+]
+
+
+
+}
+{% endschema %}

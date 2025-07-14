@@ -1,0 +1,89 @@
+<style>
+.BackgroundImage{
+
+ {% if  section.settings.BackgroundImage %}
+  background-image:url('{{ section.settings.BackgroundImage | image_url }}');
+
+  {% else %}
+  background-image:url('{{ 'BackgroundImage.avif' | asset_url }}');
+
+{% endif %} 
+background-size:cover;
+background-position:center ;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+}
+
+</style>
+
+
+<div class="BackgroundImage max-w-[100vw] mx-auto min-h-[70vh] grid grid-cols-1 lg:grid-cols-3 px-10 sm:px-20 lg:px-0 py-20 lg:py-0 ">
+
+    <div class="h-full w-full  hidden lg:flex "> </div>
+    <!-- Main Content Start  -->
+     <div class="h-full w-full  bg-slate-100 flex flex-col gap-10 justify-center items-center">
+        <h1 class="text-5xl font-bold"> Follow Us </h1>
+        <div class="w-full min-h-[10vh] px-5 flex flex-row justify-around items-center  "> 
+       <a href="{{ section.settings.url1 }}">   {% render 'Facebook_icons' %} </a>
+       <a href="{{ section.settings.url2 }}">  {% render 'Twitter_icons' %} </a>
+       <a href="{{ section.settings.Url3 }}">  {% render 'Instragram_icons' %} </a>
+       <a href="{{ section.settings.Url4 }}">   {% render 'Google_icons' %} </a>
+        </div>
+    
+    </div>
+
+     <!-- Main Content Finish -->
+      <div class="h-full w-full  hidden lg:flex "> </div>
+
+</div>
+
+
+
+{% schema %}
+
+{
+
+"name": "Social Media",
+"settings": [
+{
+"type": "image_picker",
+"id": "BackgroundImage",
+"label": "Background Image"
+},
+{
+"type": "url",
+"id": "url1",
+"label": "Facebook Url",
+"default":"/"
+
+},
+{
+"type": "url",
+"id": "url2",
+"label": "Twitter Url",
+"default":"/"
+
+},
+{
+"type": "url",
+"id": "Url3",
+"label": "Instragram Url",
+"default":"/"
+
+},
+{
+"type": "url",
+"id": "Url4",
+"label": "Google Url",
+"default":"/"
+
+}
+
+
+]
+
+
+}
+
+{% endschema %}

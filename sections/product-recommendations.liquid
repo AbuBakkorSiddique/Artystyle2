@@ -1,0 +1,26 @@
+{% assign current_product = product %}
+{% assign ProductRecomendationCollection = collections['product-recommendation'].products %}
+
+{% if ProductRecomendationCollection != blank %}
+<div class="max-w-[100vw] mx-auto min-h-[100vh] flex flex-col justify-center items-center px-[3vw] lg:px-[5vw]">
+
+<div class="w-full min-h-[10vh] flex justify-center items-center">
+
+  <h1 class="text-2xl font-bold"> Product Recommendation </h1>
+
+  </div>
+
+
+  <div class="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+  {% for product in ProductRecomendationCollection limit: 4 %}
+    {% unless product.id == current_product.id %}
+
+   {% render 'Cart_Design',product:product %}
+
+ 
+    {% endunless %}
+  {% endfor %}
+    </div>
+  </div>
+{% endif %}
+

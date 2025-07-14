@@ -1,0 +1,40 @@
+<div class="max-w-[100vw] mx-auto min-h-[40vh] text-center px-[3vw] lg:px-[5vw] bg-slate-100  flex flex-col justify-center items-center gap-5 ">
+
+
+<h1 class="text-2xl font-bold" > {{ section.settings.Sub_Heading }} </h1>
+<h1 class="text-4xl font-bold"> {{ section.settings.Heading }} </h1>
+<span class="w-[100px] h-1 bg-blue-700"> </span>
+
+
+
+
+
+{% schema %}
+{
+"name": "Small Heading",
+"settings": [
+{
+"type": "text",
+"id": "Sub_Heading",
+"label": "Sub Heading",
+"default":"Have any queries?"
+},
+{
+
+"type": "text",
+"id": "Heading",
+"label": "We're here to help.​",
+"default":"We're here to help.​"
+}],
+"presets":[
+    {
+    
+    "name":"Small Heading "
+    }
+]
+
+
+
+}
+
+{% endschema %}

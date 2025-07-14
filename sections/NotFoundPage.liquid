@@ -1,0 +1,33 @@
+<div class="max-w-[100vw] mx-auto min-h-[50vh] lg:min-h-[100vh]  bg-white flex justify-center items-center">
+
+
+{% if section.settings.Image !=blank  %}
+<img src="{{ section.settings.Image | image_url }}" alt="" class="h-full w-full object-content aspect-video">
+
+    {% else %}
+
+        <h1 class="text-2xl lg:text-4xl font-bold"> Your Page Is Not Found  </h1>
+  
+{% endif %}
+
+</div>
+
+
+{% schema %}
+
+{
+"name": "Not Found Page",
+"settings": [{
+"type": "image_picker",
+"id": "Image",
+"label": "NotFoundPage"
+
+
+}]
+
+
+
+}
+
+
+{% endschema %}

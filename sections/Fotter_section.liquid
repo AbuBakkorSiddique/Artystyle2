@@ -1,0 +1,164 @@
+<div class="max-w-[100vw] mx-auto min-h-[80vh] pt-5 bg-white  px-[3vw] lg:px-[5vw] flex flex-col gap-5 justify-center items-center ">
+
+<!-- Fotter Area First Div  Start -->
+<div class="w-full min-h-[50vh] space-y-2 lg:space-y-0  grid grid-cols-2 lg:grid-cols-4 justify-center items-center  ">
+
+    <!-- Quick Links -->
+<div class="h-full w-full  flex flex-col gap-6">
+ <h1 class="text-xl font-bold "> {{ section.settings.Quick_Links }} </h1>   
+ <div class="flex flex-col gap-2">
+ 
+    {% assign Nav1 = section.settings.Quick_Links_Link %}
+
+    {% for link in Nav1.links %}
+    <a href="{{ link.url }}">
+      <p class="text-md"> {{ link.title }} </p>
+        </a>
+
+    {% endfor %}
+
+</div>
+    
+
+
+</div>
+<!-- For Her -->
+<div class="h-full w-full  flex flex-col gap-6">
+ <h1 class="text-xl font-bold "> {{ section.settings.For_Her}} </h1>   
+ <div class="flex flex-col gap-2">
+
+    {% assign Nav2 = section.settings.For_Her_Link %}
+
+    {% for link in Nav2.links %}
+    <a href="{{ link.url }}">
+      <p class="text-md"> {{ link.title }} </p>
+        </a>
+
+    {% endfor %}
+
+</div>
+    
+
+
+</div>
+<!-- For Him -->
+<div class="h-full w-full  flex flex-col gap-6">
+ <h1 class="text-xl font-bold "> {{ section.settings.For_Him }} </h1>   
+ <div class="flex flex-col gap-2">
+
+    {% assign Nav3 = section.settings.For_Him_Link %}
+
+    {% for link in Nav3.links %}
+    <a href="{{ link.url }}">
+      <p class="text-md"> {{ link.title }} </p>
+        </a>
+
+    {% endfor %}
+
+</div>
+    
+
+
+</div>
+<!-- Subscribe Secton  -->
+<div class="h-full w-full  flex flex-col  gap-6">
+     <h1 class="text-xl font-bold "> {{ section.settings.Subscribe }} </h1>  
+     
+     <form class="w-full min-h-[16vh]  flex flex-row justify-center items-center  "  method="post" action="/contact#contact_form" accept-charset="UTF-8">
+           <input type="hidden" name="form_type" value="customer" />
+  <input type="hidden" name="utf8" value="✓" />
+
+  
+        <input type="email" name="contact[email]" required placeholder="Email" class="w-full p-2 lg:p-5 outline-none border ">
+        <button type="submit" class="text-xs lg:text-sm p-2 lg:p-5 border  bg-black text-white">
+         Subscribe
+        </button>
+
+    </form>
+
+
+</div>
+
+
+</div>
+
+<!-- Fotter Area First Div Finish -->
+
+<!-- Fotter Area Second Div Start -->
+
+<div class="w-full min-h-[20vh] border-t border-black  flex flex-row justify-between items-center ">
+    <p class="text-xs md:text-sm lg:text-lg">Copyright © 2025 Brandstore </p>
+    <p class="text-xs md:text-sm lg:text-lg">Powered by Artystyle </p>
+
+</div>
+
+<!-- Fotter Area Second Div Finish -->
+
+
+</div>
+
+
+
+{% schema %}
+{
+
+"name": "Fotter Section",
+"settings": [
+
+{
+"type": "text",
+"id": "Quick_Links",
+"label": "Heading1",
+"default":"Quick Links"
+},
+{
+
+"type": "link_list",
+"id": "Quick_Links_Link",
+"label": "Select Menu",
+"default":"main-menu"
+
+},
+{
+"type": "text",
+"id": "For_Her",
+"label": "For_Her_Heading",
+"default":"For Her"
+},
+{
+"type": "link_list",
+"id": "For_Her_Link",
+"label": "Select Menu",
+"default":"main-menu"
+},
+{
+"type": "text",
+"id": "For_Him",
+"label": "For_Him_Heading",
+"default":"For Him"
+
+},
+{
+"type": "link_list",
+"id": "For_Him_Link",
+"label": "Select Menu",
+"default":"main-menu"
+},
+
+{
+"type": "text",
+"id": "Subscribe",
+"label": "Subscribe_Heading",
+"default":"Subscribe"
+
+}
+
+]
+
+
+
+
+
+}
+
+{% endschema %}

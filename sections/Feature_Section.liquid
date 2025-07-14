@@ -1,0 +1,66 @@
+<div class="max-[100vw] mx-auto px-[3vw] min-h-[40vh] flex justify-center items-center ">
+
+    <div class="w-full min-h-[30vh]  swiper mySwiper flex justify-center items-center  ">
+     <div class="swiper-wrapper h-full w-full">
+
+
+<!-- Swiper --------------slide---------- -->
+
+
+ {%for block in  section.blocks  %}
+
+ {% case block.type %}
+    {% when "items" %}
+        
+
+      <div class="swiper-slide">  
+    <div class=" flex min-h-[30vh] w-full justify-center items-center ">
+        <img src="{{ block.settings.Feature_Image | image_url }}" alt="" class="">
+    </div>
+      </div>
+     
+        
+ {% endcase %}
+   
+    
+      
+
+{% endfor %}
+
+    </div >
+    
+
+    </div>
+
+</div>
+
+
+{% schema %}
+
+{
+"name":"Feature Section ",
+"settings":[],
+"blocks": [
+    {
+        "type": "items",
+        "name": "Feature Section ",
+        "settings": [
+       {
+    
+    "type":"image_picker",
+    "id":"Feature_Image",
+    "label":"Features"
+    
+    
+    }
+        ]
+    },
+]
+
+
+
+
+}
+
+
+{% endschema %}

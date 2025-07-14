@@ -1,0 +1,124 @@
+<style>
+.SubDIv {
+    {% if section.settings.Background_Image %}
+    background-image: url('{{ section.settings.Background_Image | image_url }}');
+    {% else %}
+    background-image: url('{{ 'BackgroundImage.avif' | asset_url }}');
+    {% endif %}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+
+<div class="max-w-[100vw] mx-auto min-h-[100vh] bg-slate-100 px-[3vw] lg:px-[2vw] flex justify-center items-center">
+    <!-- Sub Div Start -->
+    <div class="SubDIv w-full min-h-[80vh]">
+        <!-- Black opacity Div -->
+        <div class="min-h-[80vh] w-full grid grid-cols-1  lg:grid-cols-2">
+
+            <!-- Content Area Start -->
+            <div class="h-full w-full flex flex-col gap-5 pl-[5vw] py-[10vh] justify-center   items-start ">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when "Offer" %}
+                            <h1 class="text-lg font-bold text-white ">{{ block.settings.Offer | default: "Limited Time Offer" }}</h1>
+                        {% when "Heading" %}
+                            <h1 class="text-5xl font-bold text-white">{{ block.settings.Heading | default:"Special Edition" }}</h1>
+                        {% when "Paragraph" %}
+                            <p class="text-sm text-white">{{ block.settings.Paragraph | default:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." }}</p>
+                        {% when "Sub_Heading" %}
+                            <h2 class="text-lg font-bold text-white">{{ block.settings.Sub_Heading | default:"Buy This T-shirt At 20% Discount, Use Code OFF20" }}</h2>
+                        {% when "Button" %}
+                            <button class="bg-white text-md font-bold  hover:bg-black hover:text-white text-black py-3 px-8 mt-4">
+                                {{ block.settings.Button  | default:"BUY NOW"}}
+                            </button>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+
+            <div class=" h-full w-full hidden lg:flex"> </div>
+
+            <!-- Content Area Finish -->
+        </div>
+        <!-- Black opacity Div Finish -->
+    </div>
+    <!-- Sub Div Finish -->
+</div>
+
+{% schema %}
+{
+    "name": "Banner Section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "Background_Image",
+            "label": "Background Image"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Offer",
+            "type": "Offer",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "Offer",
+                    "label": "Offer"
+                }
+            ]
+        },
+        {
+            "name": "Heading",
+            "type": "Heading",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "Heading",
+                    "label": "Heading"
+                }
+            ]
+        },
+        {
+            "name": "Paragraph",
+            "type": "Paragraph",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "Paragraph",
+                    "label": "Paragraph"
+                }
+            ]
+        },
+        {
+            "name": "Sub_Heading",
+            "type": "Sub_Heading",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "Sub_Heading",
+                    "label": "Sub Heading"
+                }
+            ]
+        },
+        {
+            "name": "Button",
+            "type": "Button",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "Button",
+                    "label": "Button"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Banner Section",
+           
+        }
+    ]
+}
+{% endschema %}

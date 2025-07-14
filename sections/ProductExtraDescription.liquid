@@ -1,0 +1,20 @@
+<div class="max-w-[100vw] min-h-[100vh] gap-5  flex flex-col   mx-auto px-[3vw] lg:px-[5vw] justify-center items-center ">
+
+<h1 class="text-4xl font-bold py-5 text-center"> Product Description  </h1>
+  
+{% assign DesTitle = product.metafields.custom.extra_description %}
+{% assign DesImage = product.metafields.custom.description_image %}
+
+<div class="text-center">
+{{ DesTitle | metafield_tag }}
+</div>
+
+
+
+
+<img src="{{ DesImage|image_url }}" alt="{{ item.description }}" class=" w-full h-full aspect-video"/>
+
+
+
+
+</div>

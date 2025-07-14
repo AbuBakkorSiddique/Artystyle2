@@ -1,0 +1,190 @@
+
+<style>
+  .option-button.active {
+    border-color: #2563eb; /* blue-600 */
+    background-color: #2563eb; /* blue-600 */
+    color: #fff;
+  }
+</style>
+
+
+
+<div class="max-w-[100vw] mx-auto min-h-[100vh] px-[3vw] lg:px-[5vw] bg-slate-100 flex justify-center items-center">
+
+  <!-- Sub Section Start -->
+  <div class="w-full min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-5 px-5 py-8">
+
+    <!-- Product Image Section Start -->
+    <div class="h-full w-full">
+      <img 
+        id="main-product-image"
+        src="{{ product.featured_image | image_url }}" 
+        alt="{{ product.title }}" 
+        class="h-full w-full aspect-[1/1] object-cover"
+        
+      >
+    </div>
+    <!-- Product Image Section End -->
+
+    <!-- Product Details Section Start -->
+    <div class="h-full w-full flex flex-col gap-5">
+      <p class="text-slate-700">Home/{{ product.metafields.custom.collection_name }}/{{ product.title }}</p>
+
+      <h1 class="text-lg">{{ product.metafields.custom.collection_name }}</h1>
+      <h1 class="text-3xl">{{ product.title }}</h1>
+   <p>
+  <span id="product-price" class="text-2xl font-bold">
+    {{ product.selected_or_first_available_variant.price | money_with_currency }}
+  </span>
+  <span>+ Free Shipping</span>
+</p>
+
+      <p class="text-sm">{{ product.description }}</p>
+
+      
+
+      <!-- Product Options Area -->
+      <form method="post" action="/cart/add" id="add-to-cart-form">
+        <!-- Hidden input to hold selected variant -->
+        <input type="hidden" name="id" id="variant-id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <!-- Product Options -->
+        <div id="product-options">
+          {% unless product.has_only_default_variant %}
+
+            {% for option in product.options_with_values %}
+              <div class="flex flex-col gap-2 mb-4">
+                <h1 class="font-bold">{{ option.name }}</h1>
+                <div class="flex flex-wrap gap-2 w-full" data-option-index="{{ forloop.index0 }}">
+
+                  {% if option.name == "Size" %}
+
+                    <!-- Size Buttons -->
+                    {% for value in option.values %}
+                      {%- assign variant_id = '' -%}
+                      {%- for variant in product.variants -%}
+                        {%- if variant.option1 == value or variant.option2 == value -%}
+                          {%- assign variant_id = variant.id -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      <button
+                        type="button"
+                        class="option-button border border-slate-400 px-4 py-2 hover:bg-slate-200 transition"
+                        data-value="{{ value }}"
+                        data-variant-id="{{ variant_id }}"
+                      >
+                        {{ value }}
+                      </button>
+                    {% endfor %}
+
+                  {% elsif option.name == "Color" %}
+
+                    <!-- Color Swatch Buttons -->
+                    {% for value in option.values %}
+                      {%- assign variant_image = '' -%}
+                      {%- assign variant_id = '' -%}
+                      {%- for variant in product.variants -%}
+                        {%- if variant.option1 == value or variant.option2 == value -%}
+                          {%- assign variant_image = variant.featured_image | image_url -%}
+                          {%- assign variant_id = variant.id -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      <button
+                        type="button"
+                        class="option-button h-8 w-8 rounded-full border-2 border-slate-400 hover:scale-110 transition-all"
+                        data-value="{{ value }}"
+                        data-variant-id="{{ variant_id }}"
+                        data-variant-image="{{ variant_image }}"
+                        style="background-color: {{ value }};"
+                      ></button>
+                    {% endfor %}
+
+                  {% endif %}
+
+                </div>
+              </div>
+            {% endfor %}
+
+          {% endunless %}
+        </div>
+
+        <!-- Demo Test ---------------->
+
+
+
+
+
+        <!-- Demo Text -------------------->
+
+        <!-- Quantity & Buy Now -->
+        <div class="min-h-[8vh] w-full grid grid-cols-4 gap-2">
+          <input type="number" name="quantity" id="quantity" value="1" min="1" class="border border-slate-400 outline-none bg-white text-center col-span-1">
+
+          <button 
+            type="submit" 
+            class="col-span-3 bg-blue-500 hover:bg-blue-700 transition-all ease-in-out duration-200 flex justify-center items-center text-white font-bold py-2 rounded">
+            Add To Cart
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- Product Details Section End -->
+  </div>
+  <!-- Sub Section End -->
+</div>
+
+<!-- FULL JavaScript Final Version -->
+<script>
+  // 👉 Liquid data কে JS এ পাস করছি
+  window.productOptions = {{ product.options | json }};
+  window.productVariants = {{ product.variants | json }};
+
+  // 👉 Core Elements ধরছি
+  const optionButtons = document.querySelectorAll('.option-button');
+  const mainImage = document.getElementById('main-product-image');
+  const variantInput = document.getElementById('variant-id');
+  const priceElement = document.getElementById('product-price');
+  // 👉 Selected Options কে ট্র্যাক করার Array
+  const selectedOptions = [];
+
+  // 👉 Loop করে প্রতিটা Button এ Click Event লাগাচ্ছি
+  optionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Attribute থেকে data ধরছি
+      const variantImage = button.getAttribute('data-variant-image');
+      const optionValue = button.dataset.value;
+      const optionIndex = parseInt(button.parentElement.dataset.optionIndex);
+
+      // 👉 Selected option update
+      selectedOptions[optionIndex] = optionValue;
+
+      // 👉 Matching variant খুঁজছি
+      const matchingVariant = window.productVariants.find(variant =>
+        selectedOptions.every((opt, i) => variant.options[i] === opt)
+      );
+
+      // 👉 Hidden input update
+      if (matchingVariant) {
+        variantInput.value = matchingVariant.id;
+         // 👉 Price update
+  const formattedPrice = (matchingVariant.price / 100).toFixed(2);
+  priceElement.textContent = `$${formattedPrice}`; // বা তোমার currency format
+      } else {
+        variantInput.value = '';
+      }
+
+      // 👉 Image change (যদি থাকে)
+      if (variantImage) {
+        mainImage.src = variantImage;
+      }
+
+      // 👉 Active class toggle
+      const siblings = button.parentElement.querySelectorAll('.option-button');
+      siblings.forEach(sibling => sibling.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+</script>
+

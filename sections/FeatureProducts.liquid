@@ -1,0 +1,43 @@
+<div class="max-w-[100vw] mx-auto min-h-[100vh] bg-slate-100 px-[3vw]  flex flex-col   justify-center items-center gap-5 ">
+  <!-- Heading Area -->
+  <div class="w-full min-h-[20vh]  flex justify-center items-center  ">
+    <h1 class="text-4xl font-bold border-b-4 border-black py-2 text-center">{{ section.settings.Heading }}</h1>
+  </div>
+
+  <!-- Product Section -->
+  <div class="w-full min-h-[70vh]  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 justify-center itesm-center gap-4 my-5 ">
+    {% for product in collections.all.products limit: section.settings.Number %}
+   <!-- Product Main Cart  Start -->
+   {% render 'Cart_Design',product:product %}
+   <!-- Product Main Cart Finish -->
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "Heading",
+      "label": "Heading ",
+      "default": "Featured Products"
+    },
+
+    {
+    "type": "number",
+    "id": "Number",
+    "label": "Showing Product Count",
+    "default":10
+    
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Feature Products "
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+<div class="max-w-[100vw] mx-auto  px-[3vw] lg:px-[5vw] min-h-[100vh] py-5 gap-5  flex flex-col justify-center items-center">
+
+  {% if cart.item_count >0 %}
+  
+   <!-- Cart Title -->
+   <div class="w-full min-h-[10vh]  py-2 flex justify-center items-center ">
+        <h1 class="text-3xl font-bold"> Your Cart List   </h1>
+    </div>
+    <!-- Cart Header Title --> 
+ <div class="w-full hidden lg:block">
+    <div class="w-full min-h-[10vh]  bg-slate-200 py-2 grid grid-cols-5 justify-center items-center ">
+
+
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold">  </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> Product </p> </div>
+
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> Price </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> Quantity </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> Subtotal </p> </div>
+       
+
+    </div>
+  </div>
+    <!-- Main Cart Section   -->
+    {% for item in cart.items %}
+   <div class="w-full min-h-[20vh] border border-slate-300 gap-3 lg:gap-0 text-center  grid grid-cols-1  lg:grid-cols-5 justify-center items-center py-2 pl-5 lg:pl-0">
+       <img src="{{ item.image | image_url }}" alt="{{ item.title }}" class="h-[16vh] w-[16vw] object-cover aspect-square lg:pl-5 lg:pr-5"/>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"><span class="text-md font-bold pr-5 lg:hidden"> Product : </span> {{ item.title }} </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> <span class="text-md font-bold pr-5 lg:hidden"> Price : </span> {{ item.price | money_with_currency }} </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"><span class="text-md font-bold pr-5 lg:hidden"> Quantity : </span>  {{ item.quantity }} </p> </div>
+        <div class=" h-full w-full flex items-center"> <p class="text-md font-bold"> <span class="text-md font-bold pr-5 lg:hidden"> Total : </span> {{ item.final_line_price | money_with_currency }} </p> </div>
+
+   
+   </div>
+
+
+    {% endfor %}
+
+    
+   <!-- Checkout Area -->
+
+   <div class="w-full min-h-[20vh] gap-8 grid grid-cols-1 lg:grid-cols-2 justify-center items-center">
+
+   
+  <div class="h-full w-full  "> </div>
+
+  <!-- Main Checkout Area  -->
+    <div class="h-full w-full border grid grid-cols-1 grid-rows-2  py-5 border-slate-300">
+
+      <div class="h-full w-full flex items-center justify-center ">
+
+        <h1><strong class="text-2xl font-bold">Total Price :  </strong> {{ cart.total_price | money_with_currency }} </h1>
+        
+      
+      </div>
+      <div class="h-full w-full flex items-center justify-center">
+
+       <a href="/checkout" >  <button class="min-h-[10vh] w-full px-[10vw] bg-black text-white"> Checkout </button> </a>
+        
+      </div>
+      
+    
+    
+    </div>
+  
+
+
+  </div>
+
+
+    {% else %}
+
+      <h1 class="text-2xl lg:text-4xl font-bold">  Your Cart is Empty </h1>
+
+  {% endif %}
+
+</div>

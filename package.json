@@ -1,0 +1,15 @@
+{
+"scripts": {
+  "dev": "tailwindcss -i ./assets/tailwind.css -o ./assets/theme.css --watch & esbuild assets/main.js --bundle --outfile=assets/bundle.js --watch",
+  "build": "tailwindcss -i ./assets/tailwind.css -o ./assets/theme.css --minify && esbuild assets/main.js --bundle --outfile=assets/bundle.js --minify"
+},
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.10",
+    "aos": "^2.3.4",
+    "swiper": "^11.2.8",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  }
+}

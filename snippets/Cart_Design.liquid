@@ -1,0 +1,56 @@
+
+  <div class=" h-full w-full flex flex-col justify-center items-center ">
+    <div class="w-full min-h-[40vh]  ">
+      <a href="{{ product.url }}">
+      <img
+        src="{{ product.featured_image | image_url }}"
+        alt="{{ product.title }}"
+        class="h-full w-full object-cover"
+      >
+        </a>
+    </div>
+    <div class="w-full min-h-[30vh] flex flex-col justify-start py-2 gap-2  items-start">
+      <!-- Title -->
+      <h1 class="font-bold ">{{ product.title }}</h1>
+
+      <!-- Collection Name -->
+
+      <!-- Price Section -->
+
+      <span> {{ product.price | money }} </span>
+
+      <!-- Start Icons -->
+      <span class="flex flex-row ">
+        {% render 'Star_Icons' %}
+        {% render 'Star_Icons' %}
+        {% render 'Star_Icons' %}
+        {% render 'Star_Icons' %}
+        {% render 'Star_Icons' %}
+        </span>
+        <!-- Star Icons Finish -->
+
+        <!-- Add To Cart Section Start  -->
+<div>
+
+   {% unless  product.has_only_default_variant %}
+{% for option in product.options_with_values  %}
+
+{% for  value in option.values %}
+
+  <button style="background-color:{{ value.name }};" class="rounded-full p-2 text-sm">    </button>
+
+    {% endfor %}
+
+    {% endfor %}
+
+    {% endunless %}
+  </div>
+
+  
+
+
+        <!-- Add To Cart Section FInish -->
+     
+    </div>
+  </div>
+

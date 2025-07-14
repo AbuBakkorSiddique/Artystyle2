@@ -1,0 +1,26 @@
+<div class="max-w-[100vw] mx-auto px-[3vw] lg:px-[5vw] gap-5 min-h-[100vh] flex flex-col justify-center items-center">
+
+  <div class="min-h-[10vh] w-full flex justify-center items-center">
+    <h1 class="text-2xl font-bold"> Your Search Result </h1>
+  </div>
+
+  <!-- Main Search Result -->
+  <div class="min-h-[80vh] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-5">
+    {% if search.results.size > 0 %}
+      {% for item in search.results %}
+        {% if item.object_type == "product" %}
+          {% render 'Cart_Design', product: item %}
+        {% else %}
+          <a href="{{ item.url }}">
+            <h1>{{ item.title }}</h1>
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="w-full flex justify-center items-center min-h-[50vh]">
+        <h2 class="text-xl font-semibold">No results found.</h2>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
