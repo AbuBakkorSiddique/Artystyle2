@@ -90,6 +90,7 @@
     "SocialMedia": {
       "type": "Social_Media_link",
       "settings": {
+        "BackgroundImage": "shopify://shop_images/banner-05.jpg",
         "url1": "/",
         "url2": "/",
         "Url3": "/",
