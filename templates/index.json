@@ -109,6 +109,38 @@
     },
     "Banner_Section": {
       "type": "Banner_section",
+      "blocks": {
+        "heading_F8QgpD": {
+          "type": "Heading",
+          "settings": {
+            "Heading": ""
+          }
+        },
+        "paragraph_zMLVWH": {
+          "type": "Paragraph",
+          "settings": {
+            "Paragraph": ""
+          }
+        },
+        "sub_heading_BC6Q3z": {
+          "type": "Sub_Heading",
+          "settings": {
+            "Sub_Heading": ""
+          }
+        },
+        "button_Lnzzj8": {
+          "type": "Button",
+          "settings": {
+            "Button": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_F8QgpD",
+        "paragraph_zMLVWH",
+        "sub_heading_BC6Q3z",
+        "button_Lnzzj8"
+      ],
       "settings": {
         "Background_Image": "shopify://shop_images/banner-03.jpg"
       }
