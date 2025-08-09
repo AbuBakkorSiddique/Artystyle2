@@ -35,13 +35,27 @@
           "settings": {
             "Feature_Image": "shopify://shop_images/client-logo-3.png"
           }
+        },
+        "items_zmYYKC": {
+          "type": "items",
+          "settings": {
+            "Feature_Image": "shopify://shop_images/client-logo-4_1.png"
+          }
+        },
+        "items_7M4Jk4": {
+          "type": "items",
+          "settings": {
+            "Feature_Image": "shopify://shop_images/client-logo-4.png"
+          }
         }
       },
       "block_order": [
         "items_Grd77U",
         "items_UYVg9X",
         "items_Vh8TKY",
-        "items_aDJ7n3"
+        "items_aDJ7n3",
+        "items_zmYYKC",
+        "items_7M4Jk4"
       ],
       "settings": {}
     },
