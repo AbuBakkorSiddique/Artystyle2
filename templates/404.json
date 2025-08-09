@@ -11,9 +11,7 @@
   "sections": {
     "NotFoundPage": {
       "type": "NotFoundPage",
-      "settings": {
-        "Image": "shopify://shop_images/Pngtree_error_404_page_not_found_6501259.png"
-      }
+      "settings": {}
     }
   },
   "order": [
