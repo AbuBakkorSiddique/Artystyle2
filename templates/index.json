@@ -76,7 +76,7 @@
           "type": "offerBlock",
           "settings": {
             "Background_Image": "shopify://shop_images/men-fashion-free-img.jpg",
-            "Heading": "20% Off On Tank Tops",
+            "Heading": "Latest Eyewear For You",
             "Peragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.",
             "Button_text": "SHOP NOW",
             "Button_Url": "/"
@@ -86,7 +86,7 @@
           "type": "offerBlock",
           "settings": {
             "Background_Image": "shopify://shop_images/footwear-free-img.jpg",
-            "Heading": "20% Off On Tank Tops",
+            "Heading": "Let's Lorem Suit Up!",
             "Peragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.",
             "Button_text": "SHOP NOW",
             "Button_Url": "/"
