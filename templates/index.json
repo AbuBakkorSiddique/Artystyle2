@@ -61,6 +61,43 @@
     },
     "Offer_section": {
       "type": "Offer_Section",
+      "blocks": {
+        "offer_block_e8JmJt": {
+          "type": "offerBlock",
+          "settings": {
+            "Background_Image": "shopify://shop_images/women-fashion-free-img.jpg",
+            "Heading": "20% Off On Tank Tops",
+            "Peragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.",
+            "Button_text": "SHOP NOW",
+            "Button_Url": "/"
+          }
+        },
+        "offer_block_WLPGBr": {
+          "type": "offerBlock",
+          "settings": {
+            "Background_Image": "shopify://shop_images/men-fashion-free-img.jpg",
+            "Heading": "20% Off On Tank Tops",
+            "Peragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.",
+            "Button_text": "SHOP NOW",
+            "Button_Url": "/"
+          }
+        },
+        "offer_block_CX34gd": {
+          "type": "offerBlock",
+          "settings": {
+            "Background_Image": "shopify://shop_images/footwear-free-img.jpg",
+            "Heading": "20% Off On Tank Tops",
+            "Peragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.",
+            "Button_text": "SHOP NOW",
+            "Button_Url": "/"
+          }
+        }
+      },
+      "block_order": [
+        "offer_block_e8JmJt",
+        "offer_block_WLPGBr",
+        "offer_block_CX34gd"
+      ],
       "settings": {}
     },
     "FeatureProducts": {
