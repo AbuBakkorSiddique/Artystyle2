@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "sections": {
+      "index_hero_nav": {
+        "type": "index_hero_nav",
+        "settings": {
+          "NavLink": "main-menu",
+          "Background_image": "shopify://shop_images/home-new-bg-free-img.jpg",
+          "Nav_color": "#156291",
+          "Nav_Text_color": "#ffffff",
+          "Hero_Text_color": "#ffffff",
+          "Hero_text_size": 16,
+          "Hero_Heading": "Raining Offers For Hot Summer!",
+          "Hero_sub_Heading": "25% Off On All Products",
+          "Button1": "SHOP NOW",
+          "Button1_link": "/",
+          "Button2": "FIND MORE",
+          "Button2_link": "/"
+        }
+      },
+      "Fotter_section": {
+        "type": "Fotter_section",
+        "settings": {
+          "Quick_Links": "Quick Links",
+          "Quick_Links_Link": "main-menu",
+          "For_Her": "For Her",
+          "For_Her_Link": "main-menu",
+          "For_Him": "For Him",
+          "For_Him_Link": "main-menu",
+          "Subscribe": "Subscribe"
+        }
+      },
+      "White_Navbar": {
+        "type": "White_Navbar",
+        "settings": {
+          "NavLink": "main-menu",
+          "Nav_Text_color": "#ffffff"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}
