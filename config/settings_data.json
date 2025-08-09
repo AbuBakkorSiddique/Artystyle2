@@ -13,7 +13,7 @@
       "index_hero_nav": {
         "type": "index_hero_nav",
         "settings": {
-          "NavLink": "main-menu",
+          "NavLink": "customnavbar",
           "Background_image": "shopify://shop_images/home-new-bg-free-img.jpg",
           "Nav_color": "#156291",
           "Nav_Text_color": "#ffffff",
