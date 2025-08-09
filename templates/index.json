@@ -109,7 +109,9 @@
     },
     "Banner_Section": {
       "type": "Banner_section",
-      "settings": {}
+      "settings": {
+        "Background_Image": "shopify://shop_images/banner-03.jpg"
+      }
     },
     "WhyChoose_Us": {
       "type": "Why_Choose_Us",
