@@ -148,15 +148,19 @@
     "WhyChoose_Us": {
       "type": "Why_Choose_Us",
       "settings": {
+        "Image1": "shopify://shop_images/globe-free-img.png",
         "Text1": "Worldwide Shipping",
         "Text1_sub1": "It elit tellus, luctus nec ullamcorper",
         "Text1_sub2": "mattis, pulvinar dapibus leo.",
+        "Image2": "shopify://shop_images/quality-free-img.png",
         "Text2": "Best Quality",
         "Text2_sub1": "It elit tellus, luctus nec ullamcorper",
         "Text2_sub2": "mattis, pulvinar dapibus leo.",
+        "Image3": "shopify://shop_images/tag-free-img.png",
         "Text3": "Best Offers",
         "Text3_sub1": "It elit tellus, luctus nec ullamcorper",
         "Text3_sub2": "mattis, pulvinar dapibus leo.",
+        "Image4": "shopify://shop_images/lock-free-img.png",
         "Text4": "Secure Payments",
         "Text4_sub1": "It elit tellus, luctus nec ullamcorper",
         "Text4_sub2": "mattis, pulvinar dapibus leo."
