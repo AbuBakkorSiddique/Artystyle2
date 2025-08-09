@@ -1,20 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-
-"name":"Contact Page",
-"sections":{
- "Small_Heading":{
-    "type":"Small_Heading"
- },
- "Grid_Text":{
-    "type":"Grid_Text"
- },
- "Contact_Form_Main":{
-
-"type":"Contact_Form_Main"
-
- }
-},
-"order":["Small_Heading","Grid_Text","Contact_Form_Main"]
-
-
+  "sections": {
+    "Small_Heading": {
+      "type": "Small_Heading",
+      "settings": {
+        "Sub_Heading": "Have any queries?",
+        "Heading": "We're here to help.​"
+      }
+    },
+    "Grid_Text": {
+      "type": "Grid_Text",
+      "blocks": {
+        "grid_w3Bexw": {
+          "type": "Grid",
+          "settings": {
+            "Heading": "Sales",
+            "Paragraph": "Vestibulum ante ipsum primis in faucibus orci luctus.",
+            "Contact": "1800 123 4567"
+          }
+        },
+        "grid_Xrhr3J": {
+          "type": "Grid",
+          "settings": {
+            "Heading": "Complaints",
+            "Paragraph": "Vestibulum ante ipsum primis in faucibus orci luctus.",
+            "Contact": "1800 123 4567"
+          }
+        },
+        "grid_KgPYq7": {
+          "type": "Grid",
+          "settings": {
+            "Heading": "Return",
+            "Paragraph": "Vestibulum ante ipsum primis in faucibus orci luctus.",
+            "Contact": "returns@mail.com1800 123 4567"
+          }
+        },
+        "grid_4GypNw": {
+          "type": "Grid",
+          "settings": {
+            "Heading": "Marketing",
+            "Paragraph": "Vestibulum ante ipsum primis in faucibus orci luctus.",
+            "Contact": "1800 123 4567"
+          }
+        }
+      },
+      "block_order": [
+        "grid_w3Bexw",
+        "grid_Xrhr3J",
+        "grid_KgPYq7",
+        "grid_4GypNw"
+      ],
+      "settings": {}
+    },
+    "Contact_Form_Main": {
+      "type": "Contact_Form_Main",
+      "settings": {
+        "Heading": "You tell us. We listen.",
+        "Paragraph": "Cras elementum finibus lacus nec lacinia. Quisque non convallis nisl, eu condimentum sem. Proin dignissim libero lacus, ut eleifend magna vehicula et. Nam mattis est sed tellus."
+      }
+    }
+  },
+  "order": [
+    "Small_Heading",
+    "Grid_Text",
+    "Contact_Form_Main"
+  ]
 }

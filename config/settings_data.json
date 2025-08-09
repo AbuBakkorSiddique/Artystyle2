@@ -60,6 +60,7 @@
         "type": "ContactPage_Hero",
         "settings": {
           "NavLink": "main-menu",
+          "AboutHero_backgroundImage": "shopify://shop_images/banner-06.jpg",
           "AboutUS_Heading": "Contact Us",
           "Nav_color": "#156291",
           "Nav_Text_color": "#ffffff"
