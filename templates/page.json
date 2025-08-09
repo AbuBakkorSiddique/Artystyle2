@@ -1,19 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-"name":"Default Page Template",
-"sections":{
-    "WhoWeAre":{
-        "type":"Who_We_Are"
+  "sections": {
+    "WhoWeAre": {
+      "type": "Who_We_Are",
+      "settings": {
+        "Heading": "Who We Are",
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.",
+        "Image": "shopify://shop_images/slide-image-free-img-1024x576.jpg"
+      }
     },
-    "OurTeamHeading":{
-        "type":"Our_Team"
+    "OurTeamHeading": {
+      "type": "Our_Team",
+      "settings": {
+        "Sub_Heading": "A Few Words About",
+        "Heading": "Our Team",
+        "Paragraph": "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra."
+      }
     },
-    "OurTeamMember":{
-        "type":"Our_Team_Member"
+    "OurTeamMember": {
+      "type": "Our_Team_Member",
+      "blocks": {
+        "member_EMwRNR": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team2-free-img.png",
+            "Name": "Robat Jhonson",
+            "Position": "Manager"
+          }
+        },
+        "member_gLnPKE": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team3-free-img.png",
+            "Name": "Jessica Pearson",
+            "Position": "Manager"
+          }
+        },
+        "member_DRmXaU": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team1-free-img.png",
+            "Name": "Rachel Zain",
+            "Position": "Marketing officer"
+          }
+        },
+        "member_eMKMUE": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team4free-img.png",
+            "Name": "Luise Litt",
+            "Position": "Lead Devloper"
+          }
+        },
+        "member_drx7Ft": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team5-free-img.png",
+            "Name": "Katrina Bennett",
+            "Position": "Manager"
+          }
+        },
+        "member_FFxT9P": {
+          "type": "Member",
+          "settings": {
+            "Team_Member": "shopify://shop_images/team3-free-img.png",
+            "Name": "Jasica",
+            "Position": "Manager"
+          }
+        }
+      },
+      "block_order": [
+        "member_EMwRNR",
+        "member_gLnPKE",
+        "member_DRmXaU",
+        "member_eMKMUE",
+        "member_drx7Ft",
+        "member_FFxT9P"
+      ],
+      "settings": {}
     },
-    "SocialMedia":{
-        "type":"Social_Media_link"
+    "SocialMedia": {
+      "type": "Social_Media_link",
+      "settings": {
+        "url1": "/",
+        "url2": "/",
+        "Url3": "/",
+        "Url4": "/"
+      }
     }
-},
-"order":["WhoWeAre","OurTeamHeading","OurTeamMember","SocialMedia"]
-
+  },
+  "order": [
+    "WhoWeAre",
+    "OurTeamHeading",
+    "OurTeamMember",
+    "SocialMedia"
+  ]
 }

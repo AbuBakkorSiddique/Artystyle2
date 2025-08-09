@@ -45,6 +45,25 @@
           "NavLink": "main-menu",
           "Nav_Text_color": "#ffffff"
         }
+      },
+      "AboutPage_Hero": {
+        "type": "AboutPage_Hero",
+        "settings": {
+          "NavLink": "main-menu",
+          "AboutHero_backgroundImage": "shopify://shop_images/banner-04.jpg",
+          "AboutUS_Heading": "About Us",
+          "Nav_color": "#156291",
+          "Nav_Text_color": "#ffffff"
+        }
+      },
+      "ContactPage_Hero": {
+        "type": "ContactPage_Hero",
+        "settings": {
+          "NavLink": "main-menu",
+          "AboutUS_Heading": "Contact Us",
+          "Nav_color": "#156291",
+          "Nav_Text_color": "#ffffff"
+        }
       }
     },
     "content_for_index": []
